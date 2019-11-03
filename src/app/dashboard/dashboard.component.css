@@ -1,0 +1,16 @@
+div.chart {
+    width: 600px;
+    height: 300px;
+  }
+
+/* h2{
+    font-size: 15px;
+} */
+  #admincard {
+    background: #ffffff none repeat scroll 0 0;
+    margin: 15px 0;
+    padding: 20px;
+    border: 0 solid #413b3b;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(78, 77, 77, 0.753);
+}

@@ -1,0 +1,141 @@
+<div class="container">
+    <p><strong>Please select the season to view the Statistics.</strong></p>
+    <form class="form-horizontal form-material" #f="ngForm">
+      <div class="form-group row">
+        <div class="col-md-2">
+            <label class="control-label">Select Season</label>
+        </div>
+        <div class="col-md-3">
+            <select name="season" #season="ngModel" required class="form-control" id="season_select" [(ngModel)]="seasonVal" (change)="onSeasonChange()">
+              <option *ngFor="let sval of seasons" [ngValue]="sval">{{sval}}</option>
+            </select>
+            <span *ngIf="season.touched && !season.valid" class="help-inline" style="color:red">
+              season is required
+            </span>
+        </div>
+      </div>
+    </form>
+    <div class="row h-100">
+      <div class="col-lg-4">
+        <div class="card p-30" id="admincard" *ngIf='topTeams.length>0'>
+          <div class="media">
+            <div class="media-left media media-middle">
+                <span><i class="fa fa-edit" style="font-size:50px;color:#7aace6"></i></span>
+            </div>
+            <div class="media-body media-text-right">
+                <h5 class="m-b-0">Team won the Maximum Matches.</h5>
+                <hr>
+                <p style="font-weight:bold;color:#7aace6">Team: {{topTeams[0]}}</p>
+                <p style="font-weight:bold;color:#7aace6">Matches Won: {{totalWins[0]}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card p-30" id="admincard" *ngIf='mostTossWinner'>
+            <div class="media">
+                <div class="media-left media media-middle">
+                    <span><i class="fa fa-edit" style="font-size:50px;color:#7aace6"></i></span>
+                </div>
+                <div class="media-body media-text-right">
+                    <h5 class="m-b-0">Team won the Most number of Tosses.</h5>
+                    <hr>
+                    <p style="font-weight:bold;color:#7aace6">Team: {{mostTossWinner}}</p>
+                    <p style="font-weight:bold;color:#7aace6">Tosses: {{totalTossWin}}</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+          <div class="card p-30" id="admincard" *ngIf='mostHostedLocation'>
+              <div class="media">
+                  <div class="media-left media media-middle">
+                      <span><i class="fa fa-edit" style="font-size:50px;color:#7aace6"></i></span>
+                  </div>
+                  <div class="media-body media-text-right">
+                      <h5 class="m-b-0">Location Hosted Most Matches.</h5>
+                      <hr>
+                      <p style="font-weight:bold;color:#7aace6">City: {{mostHostedLocation}}</p>
+                      <p style="font-weight:bold;color:#7aace6">Matches: {{noOfHostedMatches}}</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-4">
+          <div class="card p-30" id="admincard" *ngIf='awardedPlayer'>
+              <div class="media">
+                  <div class="media-left media media-middle">
+                      <span><i class="fa fa-edit" style="font-size:50px;color:#7aace6"></i></span>
+                  </div>
+                  <div class="media-body media-text-right">
+                      <h5 class="m-b-0">Player won Maximum Player of the Match Awards.</h5>
+                      <hr>
+                      <p style="font-weight:bold;color:#7aace6">Player: {{awardedPlayer}}</p>
+                      <p style="font-weight:bold;color:#7aace6">Awards: {{totalAwards}}</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card p-30" id="admincard" *ngIf='teamWithHighestMargin'>
+            <div class="media">
+                <div class="media-left media media-middle">
+                    <span><i class="fa fa-edit" style="font-size:50px;color:#7aace6"></i></span>
+                </div>
+                <div class="media-body media-text-right">
+                    <h5 class="m-b-0">Team won by Highest Margin of Runs.</h5>
+                    <hr>
+                    <p style="font-weight:bold;color:#7aace6">Team: {{teamWithHighestMargin}}</p>
+                    <p style="font-weight:bold;color:#7aace6">Runs: {{winByRuns}}</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card p-30" id="admincard" *ngIf='teamWinByWickets'>
+            <div class="media">
+                <div class="media-left media media-middle">
+                    <span><i class="fa fa-edit" style="font-size:50px;color:#7aace6"></i></span>
+                </div>
+                <div class="media-body media-text-right">
+                    <h5 class="m-b-0">Team won by Highest No.of Wickets.</h5>
+                    <hr>
+                    <p style="font-weight:bold;color:#7aace6">Team: {{teamWinByWickets}}</p>
+                    <p style="font-weight:bold;color:#7aace6">Wickets: {{winByWickets}}</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+          <div class="card p-30" id="admincard" *ngIf='winningLocation'>
+              <div class="media">
+                  <div class="media-left media media-middle">
+                      <span><i class="fa fa-edit" style="font-size:50px;color:#7aace6"></i></span>
+                  </div>
+                  <div class="media-body media-text-right">
+                      <h5 class="m-b-0">Location Having Most Wins for Top Team.</h5>
+                      <hr>
+                      <p style="font-weight:bold;color:#7aace6">Team: {{winLocationTeam}}</p>
+                      <p style="font-weight:bold;color:#7aace6">City: {{winningLocation}}</p>
+                      <p style="font-weight:bold;color:#7aace6">Matches Won: {{totalMatches}}</p>  
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <br>
+    <div class="row h-100">
+      <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+        <div class="block-item-wrap">
+          <section widget class="tile widget block-item clearfix">
+            <p align="center" *ngIf='topTeams.length>0'>
+              Top Four Team in {{seasonVal}}
+            </p>
+            <div class="chart">
+                <canvas #chart ></canvas>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+</div>
